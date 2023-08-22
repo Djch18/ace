@@ -1,0 +1,26 @@
+.header-container {
+    overflow: clip;
+    text-overflow: ellipsis;
+}
+
+.header-container:first-of-type {
+    max-width: 224px;
+}
+
+@media (max-width: 992px) {
+    p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 575px) {
+    .header-container:first-of-type {
+        display: none;
+    }
+}
+
+@media (max-width: 340px) {
+    .header-container:last-of-type {
+        display: none;
+    }
+}

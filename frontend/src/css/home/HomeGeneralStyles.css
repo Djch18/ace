@@ -1,0 +1,125 @@
+/*Home page*/
+@import url('./HomePage.css');
+
+
+
+
+/*General Styles*/
+
+hr {
+    margin: 0px 0px;
+}
+
+.main-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-width: 0px;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    gap: 24px;
+    padding: 24px;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    /* flex: 0 1 auto; */
+    gap: 16px;
+    padding: 16px;
+}
+
+
+.chart-card {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    gap: 16px;
+    /* padding: 16px 24px 16px 16px; */
+    padding: 16px;
+}
+
+.chart-container {
+    flex: 1 1 auto;
+    overflow: hidden;
+    min-height: 512px;
+}
+
+.chart-grid-2 {
+    flex: 1 1 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 16px;
+}
+
+.chart-grid-2 .chart-container {
+    min-height: 384px;
+}
+
+.chart-grid-3 {
+    flex: 1 1 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 16px;
+}
+
+.chart-grid-3 .chart-container {
+    min-height: 256px;
+}
+
+@media (max-width: 991px) {
+    .chart-container {
+        min-height: 448px;
+    }
+
+    .chart-grid-2 .chart-container {
+        min-height: 320px;
+    }
+
+    .chart-grid-3 .chart-container {
+        min-height: 196px;
+    }
+}
+
+@media (max-width: 767px) {
+    .content-wrapper {
+        padding: 16px;
+        gap: 16px;
+    }
+
+    .chart-container {
+        min-height: 384px;
+    }
+
+    .chart-grid-2 {
+        grid-template-rows: repeat(2, 1fr);
+        grid-row-gap: 16px;
+        grid-template-columns: repeat(1, 1fr);
+        grid-column-gap: 0px;
+    }
+
+    .chart-grid-2 .chart-container {
+        min-height: 256px;
+    }
+
+    .chart-grid-3 {
+        grid-template-rows: repeat(3, 1fr);
+        grid-row-gap: 16px;
+        grid-template-columns: repeat(1, 1fr);
+        grid-column-gap: 0px;
+    }
+}
+
+
+@media (max-width: 576px) {
+
+    .chart-container,
+    .chart-grid-2 .chart-container,
+    .chart-grid-3 .chart-container {
+        min-height: 224px;
+    }
+}
