@@ -1,0 +1,68 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 0px 48px 0px;
+    margin: auto;
+    gap: 16px;
+}
+
+.main-form-information,
+.form-section {
+    background-color: rgba(248, 249, 250, 1);
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.375rem;
+    padding: 16px 24px;
+}
+
+.main-form-information {
+    border-top: 8px solid green !important;
+}
+
+.form-section {
+    margin-bottom: 16px;
+}
+
+.form-section:last-of-type {
+    margin-bottom: 0px;
+}
+
+.form-name-section {
+    background-color: rgba(0, 128, 0, 1);
+    border-radius: 0.375rem 0.375rem 0rem 0rem;
+    padding: 16px 24px 16px 24px;
+    color: rgb(248, 249, 250);
+    ;
+}
+
+.form-name-section h6 {
+    margin: 0px;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0rem !important;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: transparent !important;
+    background-clip: padding-box;
+    border: none !important;
+    border-radius: 0px !important;
+    transition: all 300ms;
+    border-bottom: 2px solid lightgrey !important;
+}
+
+.form-control:focus {
+    border-color: none !important;
+    box-shadow: none !important;
+    border-bottom: 2px solid green !important;
+}
+
+.form-select {
+    display: block;
+    width: 196px !important;
+    padding: 12px 48px 12px 16px !important;
+    color: var(--bs-body-color);
+}
