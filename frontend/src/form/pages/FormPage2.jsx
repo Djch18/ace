@@ -1,23 +1,29 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Form } from 'react-bootstrap'
+
+import FormContext from "../formContext/FormContext";
 
 import '../../css/form/FormStyles.css'
 
 const FormPage2 = ({ page }) => {
 
+  const { result, setResult } = useContext(FormContext);
+
   return (
     <Form>
       <div className='form-name-section'>
-        <h6>{page}. Situación familiar</h6>
+        <h6>{page}. Relaciones familiares</h6>
       </div>
 
       <div className='form-section'>
         <Form.Group controlId="formEmail">
-          <Form.Label className='mb-4'>6. Situación laboral de padres</Form.Label>
+          <Form.Label className='mb-4'>6. Situación laboral de padres.</Form.Label>
           <Form.Select aria-label="charge select"
-          // name='registerCharge'
-          // value={registerCharge}
-          // onChange={onInputChange}
+            name='resultEmploymentStatus'
+            value={result.family.employment_status}
+            onChange={(e) => {
+              setResult({ ...result, family: { ...result.family, employment_status: e.target.value } });
+            }}
           >
             <option disabled >Elegir</option>
             <option value="Mamá empleada">Mamá es empleada</option>
@@ -37,9 +43,11 @@ const FormPage2 = ({ page }) => {
         <Form.Group controlId="formEmail">
           <Form.Label className='mb-4'>7. ¿Tipo de familia?</Form.Label>
           <Form.Select aria-label="charge select"
-          // name='registerCharge'
-          // value={registerCharge}
-          // onChange={onInputChange}
+            name='resultFamilyType'
+            value={result.family.family_type}
+            onChange={(e) => {
+              setResult({ ...result, family: { ...result.family, family_type: e.target.value } });
+            }}
           >
             <option disabled default>Elegir</option>
             <option value="biparental">Biparental: madre, padre, hijos</option>
@@ -55,10 +63,11 @@ const FormPage2 = ({ page }) => {
         <Form.Group controlId="formBasicName">
           <Form.Label className='mb-4'>8. ¿Cómo es la calidad de relaciones de convivencia en tu familia?</Form.Label>
           <Form.Select aria-label="charge select"
-          // name='registerCharge'
-          // value={registerCharge}
-          // onChange={onInputChange}
-          >
+            name='resultQualityRelationships'
+            value={result.family.quality_relationships}
+            onChange={(e) => {
+              setResult({ ...result, family: { ...result.family, quality_relationships: e.target.value } });
+            }}          >
             <option default disabled>Elegir</option>
             <option value="mala">Mala</option>
             <option value="regular">Regular</option>
@@ -66,6 +75,35 @@ const FormPage2 = ({ page }) => {
             <option value="muy buena">Muy Buena</option>
             <option value="excelente">Excelente</option>
           </Form.Select>
+        </Form.Group>
+      </div>
+
+      <div className='form-section'>
+        <Form.Group controlId="formEmail">
+          <Form.Label className='mb-4'>9. ¿Tienes novia(o)?</Form.Label>
+          <Form.Check
+            label="Si"
+            type='radio'
+            name="resultCouple"
+            className='mb-3'
+            id='page-2-question-9-answer-1'
+            value={1}
+            checked={result.family.couple === '1'}
+            onChange={(e) => {
+              setResult({ ...result, family: { ...result.family, couple: e.target.value } });
+            }}
+          />
+          <Form.Check
+            label="No"
+            type='radio'
+            name="resultCouple"
+            id='page-2-question-9-answer-2'
+            value={0}
+            checked={result.family.couple === '0'}
+            onChange={(e) => {
+              setResult({ ...result, family: { ...result.family, couple: e.target.value } });
+            }}
+          />
         </Form.Group>
       </div>
     </Form>

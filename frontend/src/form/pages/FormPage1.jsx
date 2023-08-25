@@ -1,12 +1,41 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Form } from 'react-bootstrap'
+
+import FormContext from "../formContext/FormContext";
 
 import '../../css/form/FormStyles.css'
 
 const FormPage1 = ({ page }) => {
 
-  const distribution =
-  {
+  const { student, setStudent } = useContext(FormContext);
+
+  const grades = {
+    "Séptimo": [
+      "7-A", "7-B", "7-C", "7-D", "7-E", "7-F"
+    ],
+
+    "Octavo": [
+      "8-A", "8-B", "8-C", "8-D", "8-E", "8-F"
+    ],
+
+    "Noveno": [
+      "9-A", "9-B", "9-C", "9-D", "9-E", "9-F"
+    ],
+
+    "Décimo": [
+      "10-A", "10-B", "10-C", "10-D", "10-E", "10-F"
+    ],
+
+    "Undécimo": [
+      "11-A", "11-B", "11-C", "11-D", "11-E", "11-F"
+    ],
+
+    "Duodecimo": [
+      "12-A", "12-B", "12-C", "12-D", "12-E", "12-F"
+    ],
+  }
+
+  const distribution = {
     "San Jose": [
       "San José", "Escazú", "Desamparados", "Puriscal", "Tarrazú", "Aserrí", "Mora", "Goicoechea", "Santa Ana", "Alajuelita", "Vásquez de Coronado", "Acosta", "Tibas", "Moravia", "Montes de Oca", "Turrubares", "Dota", "Curridabat", "Perez Zeledón", "León Cortés"
     ],
@@ -43,6 +72,10 @@ const FormPage1 = ({ page }) => {
   //   });
   // });
 
+  // useEffect(() => {
+  //   console.log(student)
+  // }, [student])
+
   return (
     <Form>
       <div className='form-name-section'>
@@ -51,112 +84,97 @@ const FormPage1 = ({ page }) => {
 
       <div className='form-section'>
         <Form.Group controlId="formEmail">
-          <Form.Label className='mb-4'>1. Correo electrónico</Form.Label>
+          <Form.Label className='mb-4'>1. Correo institucional del estudiante.</Form.Label>
           <Form.Control
             type="email"
-            placeholder="usted@cedesdonbosco.ed.cr"
-          // name='loginEmail'
-          // value={loginEmail}
-          // onChange={onInputChange}
-          />
+            placeholder="usted@est.cedesdonbosco.ed.cr"
+            name='studentEmail'
+            value={student.name}
+            onChange={(e) => {
+              setStudent({ ...student, email: e.target.value });
+            }} />
         </Form.Group>
       </div>
 
       <div className='form-section'>
         <Form.Group controlId="formBasicName">
-          <Form.Label className='mb-4'>2. Grado y sección</Form.Label>
+          <Form.Label className='mb-4'>2. Grado y sección.</Form.Label>
           <Form.Select aria-label="charge select"
-          // name='registerCharge'
-          // value={registerCharge}
-          // onChange={onInputChange}
+            name='studentGrade'
+            value={student.grade}
+            onChange={(e) => {
+              setStudent({ ...student, grade: e.target.value });
+            }}
           >
             <option disabled >Elegir</option>
-            <option disabled>--- Séptimo ---</option>
-            <option value="7-A">7-A</option>
-            <option value="7-B">7-B</option>
-            <option value="7-C">7-C</option>
-            <option value="7-D">7-D</option>
-            <option value="7-E">7-E</option>
-            <option value="7-F">7-F</option>
-
-            <option disabled>--- Octavo ---</option>
-            <option value="8-A">8-A</option>
-            <option value="8-B">8-B</option>
-            <option value="8-C">8-C</option>
-            <option value="8-D">8-D</option>
-            <option value="8-E">8-E</option>
-            <option value="8-F">8-F</option>
-
-            <option disabled>--- Noveno ---</option>
-            <option value="9-A">9-A</option>
-            <option value="9-B">9-B</option>
-            <option value="9-C">9-C</option>
-            <option value="9-D">9-D</option>
-            <option value="9-E">9-E</option>
-            <option value="9-F">9-F</option>
-
-            <option disabled>--- Décimo ---</option>
-            <option value="10-A">10-A</option>
-            <option value="10-B">10-B</option>
-            <option value="10-C">10-C</option>
-            <option value="10-D">10-D</option>
-            <option value="10-E">10-E</option>
-            <option value="10-F">10-F</option>
-
-            <option disabled>--- Undécimo ---</option>
-            <option value="11-A">11-A</option>
-            <option value="11-B">11-B</option>
-            <option value="11-C">11-C</option>
-            <option value="11-D">11-D</option>
-            <option value="11-E">11-E</option>
-            <option value="11-F">11-F</option>
-
-            <option disabled>--- Duodecimo ---</option>
-            <option value="12-A">12-A</option>
-            <option value="12-B">12-B</option>
-            <option value="12-C">12-C</option>
-            <option value="12-D">12-D</option>
-            <option value="12-E">12-E</option>
-            <option value="12-F">12-F</option>
+            {
+              Object.entries(grades).map(([grade, sections]) => (
+                <>
+                  <option key={grade} disabled>--- {grade} ---</option>
+                  {
+                    sections.map((section) => (
+                      <option key={section} value={section}>{section}</option>
+                    ))
+                  }
+                </>
+              ))
+            }
           </Form.Select>
         </Form.Group>
       </div>
 
       <div className='form-section'>
         <Form.Group controlId="formAge">
-          <Form.Label className='mb-4'>3. Correo electrónico</Form.Label>
+          <Form.Label className='mb-4'>3. Fecha de nacimiento</Form.Label>
           <Form.Control
             type="date"
-            placeholder="usted@cedesdonbosco.ed.cr"
-          // name='loginEmail'
-          // value={loginEmail}
-          // onChange={onInputChange}
+            name='studentBirthday'
+            value={student.birthday}
+            onChange={(e) => {
+              setStudent({ ...student, birthday: e.target.value });
+            }}
           />
         </Form.Group>
       </div>
 
       <div className='form-section'>
         <Form.Group controlId="formBasicName">
-          <Form.Label className='mb-4'>4. Sexo</Form.Label>
-          <Form.Select aria-label="charge select"
-          // name='registerCharge'
-          // value={registerCharge}
-          // onChange={onInputChange}
-          >
-            <option disabled>Elegir</option>
-            <option value="Mujer">Mujer</option>
-            <option value="Hombre">Hombre</option>
-          </Form.Select>
+          <Form.Label className='mb-4'>4. Sexo.</Form.Label>
+          <Form.Check
+            label="Mujer"
+            type='radio'
+            value='mujer'
+            name="studentGender"
+            className='mb-3'
+            id='page-1-question-4-answer-1'
+            checked={student.gender === 'mujer'}
+            onChange={(e) => {
+              setStudent({ ...student, gender: e.target.value });
+            }}
+          />
+          <Form.Check
+            label="Hombre"
+            type='radio'
+            name="studentGender"
+            id='page-1-question-4-answer-2'
+            value='hombre'
+            checked={student.gender === 'hombre'}
+            onChange={(e) => {
+              setStudent({ ...student, gender: e.target.value });
+            }}
+          />
         </Form.Group>
       </div>
 
       <div className='form-section'>
         <Form.Group controlId="formBasicName">
-          <Form.Label className='mb-4'>5. Canton de domicilio</Form.Label>
+          <Form.Label className='mb-4'>5. Canton de domicilio.</Form.Label>
           <Form.Select aria-label="charge select"
-          // name='registerCharge'
-          // value={registerCharge}
-          // onChange={onInputChange}
+            name='studentAddress'
+            value={student.address}
+            onChange={(e) => {
+              setStudent({ ...student, address: e.target.value });
+            }}
           >
             <option disabled>Elegir</option>
             {

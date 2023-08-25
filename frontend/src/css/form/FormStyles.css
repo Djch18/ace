@@ -11,7 +11,7 @@
     background-color: rgba(248, 249, 250, 1);
     display: flex;
     flex-direction: column;
-    border-radius: 0.375rem;
+    border-radius: 0.375rem 0.375rem 0.375rem;
     padding: 16px 24px;
 }
 
@@ -23,6 +23,10 @@
     margin-bottom: 16px;
 }
 
+.form-section:first-of-type {
+    border-radius: 0rem 0rem 0.375rem 0.375rem !important;
+}
+
 .form-section:last-of-type {
     margin-bottom: 0px;
 }
@@ -32,14 +36,13 @@
     border-radius: 0.375rem 0.375rem 0rem 0rem;
     padding: 16px 24px 16px 24px;
     color: rgb(248, 249, 250);
-    ;
 }
 
 .form-name-section h6 {
     margin: 0px;
 }
 
-.form-control {
+.form-section .form-control {
     display: block;
     width: 100%;
     padding: 0.375rem 0rem !important;
@@ -54,15 +57,76 @@
     border-bottom: 2px solid lightgrey !important;
 }
 
-.form-control:focus {
+.form-section .form-control:focus {
     border-color: none !important;
     box-shadow: none !important;
     border-bottom: 2px solid green !important;
 }
 
-.form-select {
+.form-section .form-select {
     display: block;
     width: 196px !important;
     padding: 12px 48px 12px 16px !important;
-    color: var(--bs-body-color);
+    background-color: rgba(248, 249, 250, 1) !important;
+}
+
+.form-section .form-check-input:checked {
+    background-color: green;
+    border-color: green;
+}
+
+.form-section .form-check label {
+    width: 100% !important;
+}
+
+.likert-scale-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.likert-scale-container .form-check-input {
+    margin-top: 16px;
+}
+
+.likert-scale-side-labels {
+    display: flex;
+    align-items: flex-end;
+    margin: 0px;
+}
+
+.likert-scale-side-labels::after {
+    text-align: center;
+    font-weight: 600;
+}
+
+.likert-scale-side-labels:first-of-type:after {
+    content: "muy en desacuerdo";
+}
+
+.likert-scale-side-labels:last-of-type:after {
+    content: "muy de acuerdo";
+}
+
+.likert-scale-table-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+
+@media (max-width: 576px) {
+    .likert-scale-side-labels:first-of-type:after {
+        content: "-";
+    }
+
+    .likert-scale-side-labels:last-of-type:after {
+        content: "+";
+    }
+}
+
+@media (max-width: 320px) {
+    .likert-scale-table-container {
+        gap: 16px;
+    }
 }
