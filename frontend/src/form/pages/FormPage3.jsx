@@ -5,10 +5,7 @@ import FormContext from "../formContext/FormContext";
 
 import '../../css/form/FormStyles.css'
 
-const FormPage3 = ({ page }) => {
-
-  const { result, setResult } = useContext(FormContext);
-
+const FormPage3 = ({ page, formData: result, setFormData: setResult }) => {
   return (
     <Form>
       <div className='form-name-section'>
@@ -39,7 +36,7 @@ const FormPage3 = ({ page }) => {
               setResult({ ...result, academic_performance: { ...result.academic_performance, more_difficult_subject: e.target.value } });
             }}
           >
-            <option disabled>Elegir</option>
+            <option>Elegir</option>
             <option value="biología">Biología</option>
             <option value="ciencias">Ciencias</option>
             <option value="cívica">Cívica</option>

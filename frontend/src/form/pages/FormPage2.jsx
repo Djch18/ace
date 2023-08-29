@@ -5,10 +5,7 @@ import FormContext from "../formContext/FormContext";
 
 import '../../css/form/FormStyles.css'
 
-const FormPage2 = ({ page }) => {
-
-  const { result, setResult } = useContext(FormContext);
-
+const FormPage2 = ({ page, formData: result, setFormData: setResult }) => {
   return (
     <Form>
       <div className='form-name-section'>
@@ -25,7 +22,7 @@ const FormPage2 = ({ page }) => {
               setResult({ ...result, family: { ...result.family, employment_status: e.target.value } });
             }}
           >
-            <option disabled >Elegir</option>
+            <option>Elegir</option>
             <option value="Mamá empleada">Mamá es empleada</option>
             <option value="papá empleada">Papá es empleado</option>
             <option value="ambos empleados">Ambos empleados</option>
@@ -49,7 +46,7 @@ const FormPage2 = ({ page }) => {
               setResult({ ...result, family: { ...result.family, family_type: e.target.value } });
             }}
           >
-            <option disabled default>Elegir</option>
+            <option>Elegir</option>
             <option value="biparental">Biparental: madre, padre, hijos</option>
             <option value="extensa">Extensa: padres, abuelos, tíos</option>
             <option value="monoparental">Monoparental: 1 padre o madre</option>
@@ -68,7 +65,7 @@ const FormPage2 = ({ page }) => {
             onChange={(e) => {
               setResult({ ...result, family: { ...result.family, quality_relationships: e.target.value } });
             }}          >
-            <option default disabled>Elegir</option>
+            <option>Elegir</option>
             <option value="mala">Mala</option>
             <option value="regular">Regular</option>
             <option value="buena">Buena</option>

@@ -5,10 +5,7 @@ import FormContext from "../formContext/FormContext";
 
 import '../../css/form/FormStyles.css'
 
-const FormPage6 = ({ page }) => {
-
-  const { result, setResult } = useContext(FormContext);
-
+const FormPage6 = ({ page, formData: result, setFormData: setResult }) => {
   return (
     <Form>
       <div className='form-name-section'>
@@ -112,8 +109,8 @@ const FormPage6 = ({ page }) => {
             name="resultBullyingFromClassmates"
             className='mb-3'
             id='page-6-question-30-answer-1'
-            value={1}
-            checked={result.social_relationships.bullying_from_classmates === '1'}
+            value={-1}
+            checked={result.social_relationships.bullying_from_classmates === '-1'}
             onChange={(e) => {
               setResult({ ...result, social_relationships: { ...result.social_relationships, bullying_from_classmates: e.target.value } });
             }}
@@ -141,8 +138,8 @@ const FormPage6 = ({ page }) => {
             name="resultBullying"
             className='mb-3'
             id='page-6-question-31-answer-1'
-            value={1}
-            checked={result.social_relationships.bullying === '1'}
+            value={-1}
+            checked={result.social_relationships.bullying === '-1'}
             onChange={(e) => {
               setResult({ ...result, social_relationships: { ...result.social_relationships, bullying: e.target.value } });
             }}

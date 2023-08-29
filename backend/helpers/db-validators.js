@@ -1,4 +1,6 @@
 // const Role = require('../models/role');
+const Result = require('../models/result');
+const Student = require('../models/student');
 const User = require('../models/user');
 // const Chapter = require('../models/chapter');
 
@@ -10,9 +12,33 @@ const User = require('../models/user');
 //     }
 // }
 
-const emailExists = async (email = '') => {
+const emailExistsUser = async (email = '') => {
 
     const exitsEmail = await User.findOne({
+        where: {
+            email: email
+        }
+    })
+    if (exitsEmail) {
+        throw new Error(`Email: ${email}, is already registered`);
+    }
+}
+
+const emailExistsStudent = async (email = '') => {
+
+    const exitsEmail = await Student.findOne({
+        where: {
+            email: email
+        }
+    })
+    if (exitsEmail) {
+        throw new Error(`Email: ${email}, is already registered`);
+    }
+}
+
+const emailExistsResult = async (email = '') => {
+
+    const exitsEmail = await Result.findOne({
         where: {
             email: email
         }
@@ -50,8 +76,10 @@ const exitsUserById = async (id) => {
 
 module.exports = {
     // isValidRole,
-    emailExists,
+    emailExistsUser,
     exitsUserById,
+    emailExistsStudent,
+    emailExistsResult,
 
     // exitsChapterById,
     // existsChapter,

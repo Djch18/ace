@@ -3,7 +3,7 @@ const { check } = require('express-validator');
 
 const { getUsers, postUsers, putUsers, deleteUsers, getUserById, getNewUsers } = require('../controllers/users');
 
-const { isValidRole, emailExists, exitsUserById } = require('../helpers/db-validators');
+const { isValidRole, emailExistsUser, exitsUserById } = require('../helpers/db-validators');
 
 const { isAdminRole, hasRole } = require('../middlewares/validate-roles');
 const { validateFields } = require('../middlewares/validate-fields');
@@ -33,7 +33,7 @@ router.post('/', [
     check('second_surname', 'Second surname is required').not().isEmpty(),
     check('charge', 'Invalid charge').isIn(['ADMINISTRATIVE', 'STUDENT', 'PASTORAL', 'TEACHER', 'PSYCHOLOGY', 'REGISTRY', 'OTHER']),
     check('email', 'Email is invalid').isEmail(),
-    check('email').custom(emailExists),
+    check('email').custom(emailExistsUser),
     check('password', 'Password is required').not().isEmpty(),
     check('password', 'Password must be longer than 8 characters').isLength({ min: 8 }),
     check('role', 'Invalid role').isIn(['ADMIN_ROLE', 'READER_ROLE']),

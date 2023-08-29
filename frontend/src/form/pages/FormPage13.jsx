@@ -5,10 +5,7 @@ import FormContext from "../formContext/FormContext";
 
 import '../../css/form/FormStyles.css'
 
-const FormPage13 = ({ page }) => {
-
-  const { result, setResult } = useContext(FormContext);
-
+const FormPage13 = ({ page, formData: result, setFormData: setResult }) => {
   return (
     <Form>
       <div className='form-name-section'>

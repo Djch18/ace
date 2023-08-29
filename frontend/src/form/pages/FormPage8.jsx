@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Form } from 'react-bootstrap'
+
+import FormContext from "../formContext/FormContext";
 
 import '../../css/form/FormStyles.css'
 
-const FormPage8 = ({ page }) => {
+const FormPage8 = ({ page, formData: result, setFormData: setResult }) => {
+
+  useEffect(() => {
+    console.log(result.depression)
+  }, [result])
 
   return (
     <Form>
@@ -15,31 +21,51 @@ const FormPage8 = ({ page }) => {
         <Form.Group controlId="formEmail">
           <Form.Label className='mb-4'>53. Tristeza.</Form.Label>
           <Form.Check
-            label="0. No me siento triste"
-            name="group1"
+            label="No me siento triste"
             type='radio'
-            id='inline-radio-1'
+            name="resultSadness"
             className='mb-3'
+            id='page-8-question-53-answer-1'
+            value={0}
+            checked={result.depression.sadness === '0'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, sadness: e.target.value } });
+            }}
           />
           <Form.Check
-            label="1. Me siento triste gran parte del tiempo."
-            name="group1"
+            label="Me siento triste gran parte del tiempo."
             type='radio'
-            id='inline-radio-1'
+            name="resultSadness"
             className='mb-3'
+            id='page-8-question-53-answer-2'
+            value={1}
+            checked={result.depression.sadness === '1'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, sadness: e.target.value } });
+            }}
           />
           <Form.Check
-            label="2. Me siento triste todo el tiempo."
-            name="group1"
+            label="Me siento triste todo el tiempo."
             type='radio'
-            id='inline-radio-1'
+            name="resultSadness"
             className='mb-3'
+            id='page-8-question-53-answer-3'
+            value={2}
+            checked={result.depression.sadness === '2'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, sadness: e.target.value } });
+            }}
           />
           <Form.Check
-            label="3. Me siento tan triste o soy tan infeliz que no puedo soportarlo."
-            name="group1"
+            label="Me siento tan triste o soy tan infeliz que no puedo soportarlo."
             type='radio'
-            id='inline-radio-2'
+            name="resultSadness"
+            id='page-8-question-53-answer-4'
+            value={3}
+            checked={result.depression.sadness === '3'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, sadness: e.target.value } });
+            }}
           />
         </Form.Group>
       </div>
@@ -48,31 +74,51 @@ const FormPage8 = ({ page }) => {
         <Form.Group controlId="formEmail">
           <Form.Label className='mb-4'>54. Pesimismo.</Form.Label>
           <Form.Check
-            label="0. No estoy desalentado respecto de mi futuro."
-            name="group1"
+            label="No estoy desalentado respecto de mi futuro."
             type='radio'
-            id='inline-radio-1'
+            name="resultPessimism"
             className='mb-3'
+            id='page-8-question-54-answer-1'
+            value={0}
+            checked={result.depression.pessimism === '0'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, pessimism: e.target.value } });
+            }}
           />
           <Form.Check
-            label="1. Me siento más desalentado respecto de mi futuro que lo que solía estarlo."
-            name="group1"
+            label="Me siento más desalentado respecto de mi futuro que lo que solía estarlo."
             type='radio'
-            id='inline-radio-1'
+            name="resultPessimism"
             className='mb-3'
+            id='page-8-question-54-answer-2'
+            value={1}
+            checked={result.depression.pessimism === '1'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, pessimism: e.target.value } });
+            }}
           />
           <Form.Check
-            label="2. No espero que las cosas funcionen para mí."
-            name="group1"
+            label="No espero que las cosas funcionen para mí."
             type='radio'
-            id='inline-radio-1'
+            name="resultPessimism"
             className='mb-3'
+            id='page-8-question-54-answer-3'
+            value={2}
+            checked={result.depression.pessimism === '2'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, pessimism: e.target.value } });
+            }}
           />
           <Form.Check
-            label="3. Siento que no hay esperanza para mi futuro y que sólo puede empeorar."
-            name="group1"
+            label="Siento que no hay esperanza para mi futuro y que sólo puede empeorar."
             type='radio'
-            id='inline-radio-2'
+            name="resultPessimism"
+            id='page-8-question-54-answer-4'
+            value={3}
+            checked={result.depression.pessimism === '3'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, pessimism: e.target.value } });
+            }}
           />
         </Form.Group>
       </div>
@@ -81,31 +127,51 @@ const FormPage8 = ({ page }) => {
         <Form.Group controlId="formEmail">
           <Form.Label className='mb-4'>55. Fracaso.</Form.Label>
           <Form.Check
-            label="0. No me siento como un fracasado."
-            name="group1"
+            label="No me siento como un fracasado."
             type='radio'
-            id='inline-radio-1'
+            name="resultFailure"
             className='mb-3'
+            id='page-8-question-55-answer-1'
+            value={0}
+            checked={result.depression.failure === '0'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, failure: e.target.value } });
+            }}
           />
           <Form.Check
-            label="1. He fracasado más de lo que hubiera debido."
-            name="group1"
+            label="He fracasado más de lo que hubiera debido."
             type='radio'
-            id='inline-radio-1'
+            name="resultFailure"
             className='mb-3'
+            id='page-8-question-55-answer-2'
+            value={1}
+            checked={result.depression.failure === '1'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, failure: e.target.value } });
+            }}
           />
           <Form.Check
-            label="2. Cuando miro hacia atrás, veo muchos fracasos."
-            name="group1"
+            label="Cuando miro hacia atrás, veo muchos fracasos."
             type='radio'
-            id='inline-radio-1'
+            name="resultFailure"
             className='mb-3'
+            id='page-8-question-55-answer-3'
+            value={2}
+            checked={result.depression.failure === '2'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, failure: e.target.value } });
+            }}
           />
           <Form.Check
-            label="3. Siento que como persona soy un fracaso total."
-            name="group1"
+            label="Siento que como persona soy un fracaso total."
             type='radio'
-            id='inline-radio-2'
+            name="resultFailure"
+            id='page-8-question-55-answer-4'
+            value={3}
+            checked={result.depression.failure === '3'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, failure: e.target.value } });
+            }}
           />
         </Form.Group>
       </div>
@@ -114,31 +180,51 @@ const FormPage8 = ({ page }) => {
         <Form.Group controlId="formEmail">
           <Form.Label className='mb-4'>56. Pérdida de placer.</Form.Label>
           <Form.Check
-            label="0. Obtengo tanto placer como siempre por las cosas de las que disfruto."
-            name="group1"
+            label="Obtengo tanto placer como siempre por las cosas de las que disfruto."
             type='radio'
-            id='inline-radio-1'
+            name="resultLossPleasure"
             className='mb-3'
+            id='page-8-question-56-answer-1'
+            value={0}
+            checked={result.depression.loss_pleasure === '0'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, loss_pleasure: e.target.value } });
+            }}
           />
           <Form.Check
-            label="1. No disfruto tanto de las cosas como solía hacerlo."
-            name="group1"
+            label="No disfruto tanto de las cosas como solía hacerlo."
             type='radio'
-            id='inline-radio-1'
+            name="resultLossPleasure"
             className='mb-3'
+            id='page-8-question-56-answer-2'
+            value={1}
+            checked={result.depression.loss_pleasure === '1'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, loss_pleasure: e.target.value } });
+            }}
           />
           <Form.Check
-            label="2. Obtengo muy poco placer de las cosas que solía disfrutar."
-            name="group1"
+            label="Obtengo muy poco placer de las cosas que solía disfrutar."
             type='radio'
-            id='inline-radio-1'
+            name="resultLossPleasure"
             className='mb-3'
+            id='page-8-question-56-answer-3'
+            value={2}
+            checked={result.depression.loss_pleasure === '2'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, loss_pleasure: e.target.value } });
+            }}
           />
           <Form.Check
-            label="3. No puedo obtener ningún placer de las cosas de las que solía disfrutar."
-            name="group1"
+            label="No puedo obtener ningún placer de las cosas de las que solía disfrutar."
             type='radio'
-            id='inline-radio-2'
+            name="resultLossPleasure"
+            id='page-8-question-56-answer-4'
+            value={3}
+            checked={result.depression.loss_pleasure === '3'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, loss_pleasure: e.target.value } });
+            }}
           />
         </Form.Group>
       </div>
@@ -147,31 +233,51 @@ const FormPage8 = ({ page }) => {
         <Form.Group controlId="formEmail">
           <Form.Label className='mb-4'>57. Sentimiento de culpa.</Form.Label>
           <Form.Check
-            label="0. No me siento particularmente culpable."
-            name="group1"
+            label="No me siento particularmente culpable."
             type='radio'
-            id='inline-radio-1'
+            name="resultFeelGuilt"
             className='mb-3'
+            id='page-8-question-57-answer-1'
+            value={0}
+            checked={result.depression.feel_guilt === '0'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, feel_guilt: e.target.value } });
+            }}
           />
           <Form.Check
-            label="1. Me siento culpable respecto de varias cosas que he hecho o que debería haber hecho."
-            name="group1"
+            label="Me siento culpable respecto de varias cosas que he hecho o que debería haber hecho."
             type='radio'
-            id='inline-radio-1'
+            name="resultFeelGuilt"
             className='mb-3'
+            id='page-8-question-57-answer-2'
+            value={1}
+            checked={result.depression.feel_guilt === '1'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, feel_guilt: e.target.value } });
+            }}
           />
           <Form.Check
-            label="2. Me siento bastante culpable la mayor parte del tiempo."
-            name="group1"
+            label="Me siento bastante culpable la mayor parte del tiempo."
             type='radio'
-            id='inline-radio-1'
+            name="resultFeelGuilt"
             className='mb-3'
+            id='page-8-question-57-answer-3'
+            value={2}
+            checked={result.depression.feel_guilt === '2'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, feel_guilt: e.target.value } });
+            }}
           />
           <Form.Check
-            label="3. Me siento culpable todo el tiempo."
-            name="group1"
+            label="Me siento culpable todo el tiempo."
             type='radio'
-            id='inline-radio-2'
+            name="resultFeelGuilt"
+            id='page-8-question-57-answer-4'
+            value={3}
+            checked={result.depression.feel_guilt === '3'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, feel_guilt: e.target.value } });
+            }}
           />
         </Form.Group>
       </div>
@@ -180,31 +286,51 @@ const FormPage8 = ({ page }) => {
         <Form.Group controlId="formEmail">
           <Form.Label className='mb-4'>58. Sentimientos de castigo.</Form.Label>
           <Form.Check
-            label="0. No siento que este siendo castigado."
-            name="group1"
+            label="No siento que este siendo castigado."
             type='radio'
-            id='inline-radio-1'
+            name="resultFeelPunishment"
             className='mb-3'
+            id='page-8-question-58-answer-1'
+            value={0}
+            checked={result.depression.feel_punishment === '0'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, feel_punishment: e.target.value } });
+            }}
           />
           <Form.Check
-            label="1. Siento que tal vez pueda ser castigado."
-            name="group1"
+            label="Siento que tal vez pueda ser castigado."
             type='radio'
-            id='inline-radio-1'
+            name="resultFeelPunishment"
             className='mb-3'
+            id='page-8-question-58-answer-2'
+            value={1}
+            checked={result.depression.feel_punishment === '1'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, feel_punishment: e.target.value } });
+            }}
           />
           <Form.Check
-            label="2. Espero ser castigado."
-            name="group1"
+            label="Espero ser castigado."
             type='radio'
-            id='inline-radio-1'
+            name="resultFeelPunishment"
             className='mb-3'
+            id='page-8-question-58-answer-3'
+            value={2}
+            checked={result.depression.feel_punishment === '2'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, feel_punishment: e.target.value } });
+            }}
           />
           <Form.Check
-            label="3. Siento que estoy siendo castigado."
-            name="group1"
+            label="Siento que estoy siendo castigado."
             type='radio'
-            id='inline-radio-2'
+            name="resultFeelPunishment"
+            id='page-8-question-58-answer-4'
+            value={3}
+            checked={result.depression.feel_punishment === '3'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, feel_punishment: e.target.value } });
+            }}
           />
         </Form.Group>
       </div>
@@ -213,31 +339,51 @@ const FormPage8 = ({ page }) => {
         <Form.Group controlId="formEmail">
           <Form.Label className='mb-4'>59. Disconformidad con uno mismo.</Form.Label>
           <Form.Check
-            label="0. Siento acerca de mi lo mismo que siempre."
-            name="group1"
+            label="Siento acerca de mi lo mismo que siempre."
             type='radio'
-            id='inline-radio-1'
+            name="resultDiscomfort"
             className='mb-3'
+            id='page-8-question-59-answer-1'
+            value={0}
+            checked={result.depression.discomfort === '0'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, discomfort: e.target.value } });
+            }}
           />
           <Form.Check
-            label="1. He perdido la confianza en mí mismo."
-            name="group1"
+            label="He perdido la confianza en mí mismo."
             type='radio'
-            id='inline-radio-1'
+            name="resultDiscomfort"
             className='mb-3'
+            id='page-8-question-59-answer-2'
+            value={1}
+            checked={result.depression.discomfort === '1'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, discomfort: e.target.value } });
+            }}
           />
           <Form.Check
-            label="2. Estoy decepcionado conmigo mismo."
-            name="group1"
+            label="Estoy decepcionado conmigo mismo."
             type='radio'
-            id='inline-radio-1'
+            name="resultDiscomfort"
             className='mb-3'
+            id='page-8-question-59-answer-3'
+            value={2}
+            checked={result.depression.discomfort === '2'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, discomfort: e.target.value } });
+            }}
           />
           <Form.Check
-            label="3. No me gusto a mí mismo."
-            name="group1"
+            label="No me gusto a mí mismo."
             type='radio'
-            id='inline-radio-2'
+            name="resultDiscomfort"
+            id='page-8-question-59-answer-4'
+            value={3}
+            checked={result.depression.discomfort === '3'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, discomfort: e.target.value } });
+            }}
           />
         </Form.Group>
       </div>
@@ -246,31 +392,51 @@ const FormPage8 = ({ page }) => {
         <Form.Group controlId="formEmail">
           <Form.Label className='mb-4'>60. Autocrítica.</Form.Label>
           <Form.Check
-            label="0. No me critico ni me culpo más de lo habitual"
-            name="group1"
+            label="No me critico ni me culpo más de lo habitual"
             type='radio'
-            id='inline-radio-1'
+            name="resultSelfCriticism"
             className='mb-3'
+            id='page-8-question-60-answer-1'
+            value={0}
+            checked={result.depression.self_criticism === '0'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, self_criticism: e.target.value } });
+            }}
           />
           <Form.Check
-            label="1. Estoy más crítico conmigo mismo de lo que solía estarlo."
-            name="group1"
+            label="Estoy más crítico conmigo mismo de lo que solía estarlo."
             type='radio'
-            id='inline-radio-1'
+            name="resultSelfCriticism"
             className='mb-3'
+            id='page-8-question-60-answer-2'
+            value={1}
+            checked={result.depression.self_criticism === '1'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, self_criticism: e.target.value } });
+            }}
           />
           <Form.Check
-            label="2. Me critico a mí mismo por todos mis errores."
-            name="group1"
+            label="Me critico a mí mismo por todos mis errores."
             type='radio'
-            id='inline-radio-1'
+            name="resultSelfCriticism"
             className='mb-3'
+            id='page-8-question-60-answer-3'
+            value={2}
+            checked={result.depression.self_criticism === '2'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, self_criticism: e.target.value } });
+            }}
           />
           <Form.Check
-            label="3. Me culpo a mí mismo por todo lo malo que sucede."
-            name="group1"
+            label="Me culpo a mí mismo por todo lo malo que sucede."
             type='radio'
-            id='inline-radio-2'
+            name="resultSelfCriticism"
+            id='page-8-question-60-answer-4'
+            value={3}
+            checked={result.depression.self_criticism === '3'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, self_criticism: e.target.value } });
+            }}
           />
         </Form.Group>
       </div>
@@ -279,31 +445,51 @@ const FormPage8 = ({ page }) => {
         <Form.Group controlId="formEmail">
           <Form.Label className='mb-4'>61. Pensamiento o deseos suicidas.</Form.Label>
           <Form.Check
-            label="0. No tengo ningún pensamiento de matarme."
-            name="group1"
+            label="No tengo ningún pensamiento de matarme."
             type='radio'
-            id='inline-radio-1'
+            name="resultSuicideWishes"
             className='mb-3'
+            id='page-8-question-61-answer-1'
+            value={0}
+            checked={result.depression.suicide_wishes === '0'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, suicide_wishes: e.target.value } });
+            }}
           />
           <Form.Check
-            label="1. He tenido pensamientos de matarme, pero no lo haría."
-            name="group1"
+            label="He tenido pensamientos de matarme, pero no lo haría."
             type='radio'
-            id='inline-radio-1'
+            name="resultSuicideWishes"
             className='mb-3'
+            id='page-8-question-61-answer-2'
+            value={1}
+            checked={result.depression.suicide_wishes === '1'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, suicide_wishes: e.target.value } });
+            }}
           />
           <Form.Check
-            label="2. Querría matarme."
-            name="group1"
+            label="Querría matarme."
             type='radio'
-            id='inline-radio-1'
+            name="resultSuicideWishes"
             className='mb-3'
+            id='page-8-question-61-answer-3'
+            value={2}
+            checked={result.depression.suicide_wishes === '2'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, suicide_wishes: e.target.value } });
+            }}
           />
           <Form.Check
-            label="3. Me mataría si tuviera la oportunidad de hacerlo."
-            name="group1"
+            label="Me mataría si tuviera la oportunidad de hacerlo."
             type='radio'
-            id='inline-radio-2'
+            name="resultSuicideWishes"
+            id='page-8-question-61-answer-4'
+            value={3}
+            checked={result.depression.suicide_wishes === '3'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, suicide_wishes: e.target.value } });
+            }}
           />
         </Form.Group>
       </div>
@@ -312,31 +498,51 @@ const FormPage8 = ({ page }) => {
         <Form.Group controlId="formEmail">
           <Form.Label className='mb-4'>62. Llanto.</Form.Label>
           <Form.Check
-            label="0. No lloro más de lo que solía hacerlo."
-            name="group1"
+            label="No lloro más de lo que solía hacerlo."
             type='radio'
-            id='inline-radio-1'
+            name="resultCrying"
             className='mb-3'
+            id='page-8-question-62-answer-1'
+            value={0}
+            checked={result.depression.crying === '0'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, crying: e.target.value } });
+            }}
           />
           <Form.Check
-            label="1. Lloro más de lo que solía hacerlo."
-            name="group1"
+            label="Lloro más de lo que solía hacerlo."
             type='radio'
-            id='inline-radio-1'
+            name="resultCrying"
             className='mb-3'
+            id='page-8-question-62-answer-2'
+            value={1}
+            checked={result.depression.crying === '1'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, crying: e.target.value } });
+            }}
           />
           <Form.Check
-            label="2. Lloro por cualquier pequeñez."
-            name="group1"
+            label="Lloro por cualquier pequeñez."
             type='radio'
-            id='inline-radio-1'
+            name="resultCrying"
             className='mb-3'
+            id='page-8-question-62-answer-3'
+            value={2}
+            checked={result.depression.crying === '2'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, crying: e.target.value } });
+            }}
           />
           <Form.Check
-            label="3. Siento ganas de llorar pero no puedo."
-            name="group1"
+            label="Siento ganas de llorar pero no puedo."
             type='radio'
-            id='inline-radio-2'
+            name="resultCrying"
+            id='page-8-question-62-answer-4'
+            value={3}
+            checked={result.depression.crying === '3'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, crying: e.target.value } });
+            }}
           />
         </Form.Group>
       </div>
@@ -345,31 +551,51 @@ const FormPage8 = ({ page }) => {
         <Form.Group controlId="formEmail">
           <Form.Label className='mb-4'>63. Agitación.</Form.Label>
           <Form.Check
-            label="0. No estoy más inquieto o tenso que lo habitual."
-            name="group1"
+            label="No estoy más inquieto o tenso que lo habitual."
             type='radio'
-            id='inline-radio-1'
+            name="resultAgitation"
             className='mb-3'
+            id='page-8-question-63-answer-1'
+            value={0}
+            checked={result.depression.agitation === '0'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, agitation: e.target.value } });
+            }}
           />
           <Form.Check
-            label="1. Me siento más inquieto o tenso que lo habitual."
-            name="group1"
+            label="Me siento más inquieto o tenso que lo habitual."
             type='radio'
-            id='inline-radio-1'
+            name="resultAgitation"
             className='mb-3'
+            id='page-8-question-63-answer-2'
+            value={1}
+            checked={result.depression.agitation === '1'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, agitation: e.target.value } });
+            }}
           />
           <Form.Check
-            label="2. Estoy tan inquieto o agitado que me es difícil quedarme quieto."
-            name="group1"
+            label="Estoy tan inquieto o agitado que me es difícil quedarme quieto."
             type='radio'
-            id='inline-radio-1'
+            name="resultAgitation"
             className='mb-3'
+            id='page-8-question-63-answer-3'
+            value={2}
+            checked={result.depression.agitation === '2'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, agitation: e.target.value } });
+            }}
           />
           <Form.Check
-            label="3. Estoy tan inquieto o agitado que tengo que estar siempre en movimiento o haciendo algo."
-            name="group1"
+            label="Estoy tan inquieto o agitado que tengo que estar siempre en movimiento o haciendo algo."
             type='radio'
-            id='inline-radio-2'
+            name="resultAgitation"
+            id='page-8-question-63-answer-4'
+            value={3}
+            checked={result.depression.agitation === '3'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, agitation: e.target.value } });
+            }}
           />
         </Form.Group>
       </div>
@@ -378,31 +604,51 @@ const FormPage8 = ({ page }) => {
         <Form.Group controlId="formEmail">
           <Form.Label className='mb-4'>64. Pérdida de interés.</Form.Label>
           <Form.Check
-            label="0. No he perdido el interés en otras actividades o personas."
-            name="group1"
+            label="No he perdido el interés en otras actividades o personas."
             type='radio'
-            id='inline-radio-1'
+            name="resultLossInterest"
             className='mb-3'
+            id='page-8-question-64-answer-1'
+            value={0}
+            checked={result.depression.loss_interest === '0'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, loss_interest: e.target.value } });
+            }}
           />
           <Form.Check
-            label="1. Estoy menos interesado que antes en otras personas o cosas."
-            name="group1"
+            label="Estoy menos interesado que antes en otras personas o cosas."
             type='radio'
-            id='inline-radio-1'
+            name="resultLossInterest"
             className='mb-3'
+            id='page-8-question-64-answer-2'
+            value={1}
+            checked={result.depression.loss_interest === '1'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, loss_interest: e.target.value } });
+            }}
           />
           <Form.Check
-            label="2. He perdido casi todo el interés en otras personas o cosas."
-            name="group1"
+            label="He perdido casi todo el interés en otras personas o cosas."
             type='radio'
-            id='inline-radio-1'
+            name="resultLossInterest"
             className='mb-3'
+            id='page-8-question-64-answer-3'
+            value={2}
+            checked={result.depression.loss_interest === '2'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, loss_interest: e.target.value } });
+            }}
           />
           <Form.Check
-            label="3. Me es difícil interesarme por algo"
-            name="group1"
+            label="Me es difícil interesarme por algo"
             type='radio'
-            id='inline-radio-2'
+            name="resultLossInterest"
+            id='page-8-question-64-answer-4'
+            value={3}
+            checked={result.depression.loss_interest === '3'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, loss_interest: e.target.value } });
+            }}
           />
         </Form.Group>
       </div>
@@ -411,31 +657,51 @@ const FormPage8 = ({ page }) => {
         <Form.Group controlId="formEmail">
           <Form.Label className='mb-4'>65. Indecisión.</Form.Label>
           <Form.Check
-            label="0. Tomo mis propias decisiones tan bien como siempre."
-            name="group1"
+            label="Tomo mis propias decisiones tan bien como siempre."
             type='radio'
-            id='inline-radio-1'
+            name="resultIndecision"
             className='mb-3'
+            id='page-8-question-65-answer-1'
+            value={0}
+            checked={result.depression.indecision === '0'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, indecision: e.target.value } });
+            }}
           />
           <Form.Check
-            label="1. Me resulta más difícil que de costumbre tomar decisiones."
-            name="group1"
+            label="Me resulta más difícil que de costumbre tomar decisiones."
             type='radio'
-            id='inline-radio-1'
+            name="resultIndecision"
             className='mb-3'
+            id='page-8-question-65-answer-2'
+            value={1}
+            checked={result.depression.indecision === '1'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, indecision: e.target.value } });
+            }}
           />
           <Form.Check
-            label="2. Encuentro mucha más dificultad que antes para tomar decisiones."
-            name="group1"
+            label="Encuentro mucha más dificultad que antes para tomar decisiones."
             type='radio'
-            id='inline-radio-1'
+            name="resultIndecision"
             className='mb-3'
+            id='page-8-question-65-answer-3'
+            value={2}
+            checked={result.depression.indecision === '2'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, indecision: e.target.value } });
+            }}
           />
           <Form.Check
-            label="3. Tengo problemas para tomar cualquier decisión."
-            name="group1"
+            label="Tengo problemas para tomar cualquier decisión."
             type='radio'
-            id='inline-radio-2'
+            name="resultIndecision"
+            id='page-8-question-65-answer-4'
+            value={3}
+            checked={result.depression.indecision === '3'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, indecision: e.target.value } });
+            }}
           />
         </Form.Group>
       </div>
@@ -444,31 +710,51 @@ const FormPage8 = ({ page }) => {
         <Form.Group controlId="formEmail">
           <Form.Label className='mb-4'>66. Desvalorización.</Form.Label>
           <Form.Check
-            label="0. Me siento valioso(a)."
-            name="group1"
+            label="Me siento valioso(a)."
             type='radio'
-            id='inline-radio-1'
+            name="resultDevaluation"
             className='mb-3'
+            id='page-8-question-66-answer-1'
+            value={0}
+            checked={result.depression.devaluation === '0'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, devaluation: e.target.value } });
+            }}
           />
           <Form.Check
-            label="1. No me considero a mi mismo tan valioso y útil como solía considerarme antes."
-            name="group1"
+            label="No me considero a mi mismo tan valioso y útil como solía considerarme antes."
             type='radio'
-            id='inline-radio-1'
+            name="resultDevaluation"
             className='mb-3'
+            id='page-8-question-66-answer-2'
+            value={1}
+            checked={result.depression.devaluation === '1'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, devaluation: e.target.value } });
+            }}
           />
           <Form.Check
-            label="2. Me siento menos valioso cuando me comparo con otros."
-            name="group1"
+            label="Me siento menos valioso cuando me comparo con otros."
             type='radio'
-            id='inline-radio-1'
+            name="resultDevaluation"
             className='mb-3'
+            id='page-8-question-66-answer-3'
+            value={2}
+            checked={result.depression.devaluation === '2'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, devaluation: e.target.value } });
+            }}
           />
           <Form.Check
-            label="3. Siento que no valgo nada."
-            name="group1"
+            label="Siento que no valgo nada."
             type='radio'
-            id='inline-radio-2'
+            name="resultDevaluation"
+            id='page-8-question-66-answer-4'
+            value={3}
+            checked={result.depression.devaluation === '3'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, devaluation: e.target.value } });
+            }}
           />
         </Form.Group>
       </div>
@@ -477,31 +763,51 @@ const FormPage8 = ({ page }) => {
         <Form.Group controlId="formEmail">
           <Form.Label className='mb-4'>67. Pérdida de energía.</Form.Label>
           <Form.Check
-            label="0. Tengo tanta energía como siempre."
-            name="group1"
+            label="Tengo tanta energía como siempre."
             type='radio'
-            id='inline-radio-1'
+            name="resultLossEnergy"
             className='mb-3'
+            id='page-8-question-67-answer-1'
+            value={0}
+            checked={result.depression.loss_energy === '0'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, loss_energy: e.target.value } });
+            }}
           />
           <Form.Check
-            label="1. Tengo menos energía que la que solía tener."
-            name="group1"
+            label="Tengo menos energía que la que solía tener."
             type='radio'
-            id='inline-radio-1'
+            name="resultLossEnergy"
             className='mb-3'
+            id='page-8-question-67-answer-2'
+            value={1}
+            checked={result.depression.loss_energy === '1'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, loss_energy: e.target.value } });
+            }}
           />
           <Form.Check
-            label="2. No tengo suficiente energía para hacer demasiado."
-            name="group1"
+            label="No tengo suficiente energía para hacer demasiado."
             type='radio'
-            id='inline-radio-1'
+            name="resultLossEnergy"
             className='mb-3'
+            id='page-8-question-67-answer-3'
+            value={2}
+            checked={result.depression.loss_energy === '2'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, loss_energy: e.target.value } });
+            }}
           />
           <Form.Check
-            label="3. No tengo energía suficiente para hacer nada."
-            name="group1"
+            label="No tengo energía suficiente para hacer nada."
             type='radio'
-            id='inline-radio-2'
+            name="resultLossEnergy"
+            id='page-8-question-67-answer-4'
+            value={3}
+            checked={result.depression.loss_energy === '3'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, loss_energy: e.target.value } });
+            }}
           />
         </Form.Group>
       </div>
@@ -510,52 +816,87 @@ const FormPage8 = ({ page }) => {
         <Form.Group controlId="formEmail">
           <Form.Label className='mb-4'>68. Cambios en los hábitos de sueño.</Form.Label>
           <Form.Check
-            label="0. No he experimentado ningún cambio en mis hábitos de sueño."
-            name="group1"
+            label="No he experimentado ningún cambio en mis hábitos de sueño."
             type='radio'
-            id='inline-radio-1'
+            name="resultSleepChanges"
             className='mb-3'
+            id='page-8-question-68-answer-1'
+            value={0}
+            checked={result.depression.sleep_changes === '0'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, sleep_changes: e.target.value } });
+            }}
           />
           <Form.Check
-            label="1. Duermo un poco más que lo habitual."
-            name="group1"
+            label="Duermo un poco más que lo habitual."
             type='radio'
-            id='inline-radio-1'
+            name="resultSleepChanges"
             className='mb-3'
+            id='page-8-question-68-answer-2'
+            value={1}
+            checked={result.depression.sleep_changes === '1'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, sleep_changes: e.target.value } });
+            }}
           />
           <Form.Check
-            label="2. Duermo un poco menos que lo habitual."
-            name="group1"
+            label="Duermo un poco menos que lo habitual."
             type='radio'
-            id='inline-radio-1'
+            name="resultSleepChanges"
             className='mb-3'
+            id='page-8-question-68-answer-3'
+            value={1}
+            checked={result.depression.sleep_changes === '1'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, sleep_changes: e.target.value } });
+            }}
           />
           <Form.Check
-            label="3. Duermo mucho más que lo habitual."
-            name="group1"
+            label="Duermo mucho más que lo habitual."
             type='radio'
-            id='inline-radio-2'
+            name="resultSleepChanges"
             className='mb-3'
+            id='page-8-question-68-answer-4'
+            value={2}
+            checked={result.depression.sleep_changes === '2'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, sleep_changes: e.target.value } });
+            }}
           />
           <Form.Check
-            label="4. Duermo mucho menos que lo habitual."
-            name="group1"
+            label="Duermo mucho menos que lo habitual."
             type='radio'
-            id='inline-radio-2'
+            name="resultSleepChanges"
             className='mb-3'
+            id='page-8-question-68-answer-5'
+            value={2}
+            checked={result.depression.sleep_changes === '2'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, sleep_changes: e.target.value } });
+            }}
           />
           <Form.Check
-            label="5. Duermo la mayor parte del día."
-            name="group1"
+            label="Duermo la mayor parte del día."
             type='radio'
-            id='inline-radio-2'
+            name="resultSleepChanges"
             className='mb-3'
+            id='page-8-question-68-answer-6'
+            value={3}
+            checked={result.depression.sleep_changes === '3'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, sleep_changes: e.target.value } });
+            }}
           />
           <Form.Check
-            label="6. Me despierto 1-2 horas más temprano y no puedo volver a dormirme."
-            name="group1"
+            label="Me despierto 1-2 horas más temprano y no puedo volver a dormirme."
             type='radio'
-            id='inline-radio-2'
+            name="resultSleepChanges"
+            id='page-8-question-68-answer-7'
+            value={3}
+            checked={result.depression.sleep_changes === '3'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, sleep_changes: e.target.value } });
+            }}
           />
         </Form.Group>
       </div>
@@ -564,31 +905,51 @@ const FormPage8 = ({ page }) => {
         <Form.Group controlId="formEmail">
           <Form.Label className='mb-4'>69. Irritabilidad.</Form.Label>
           <Form.Check
-            label="0. No estoy tan irritable que lo habitual."
-            name="group1"
+            label="No estoy tan irritable que lo habitual."
             type='radio'
-            id='inline-radio-1'
+            name="resultIrritability"
             className='mb-3'
+            id='page-8-question-69-answer-1'
+            value={0}
+            checked={result.depression.irritability === '0'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, irritability: e.target.value } });
+            }}
           />
           <Form.Check
-            label="1. Estoy más irritable que lo habitual."
-            name="group1"
+            label="Estoy más irritable que lo habitual."
             type='radio'
-            id='inline-radio-1'
+            name="resultIrritability"
             className='mb-3'
+            id='page-8-question-69-answer-2'
+            value={1}
+            checked={result.depression.irritability === '1'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, irritability: e.target.value } });
+            }}
           />
           <Form.Check
-            label="2. Estoy mucho más irritable que lo habitual."
-            name="group1"
+            label="Estoy mucho más irritable que lo habitual."
             type='radio'
-            id='inline-radio-1'
+            name="resultIrritability"
             className='mb-3'
+            id='page-8-question-69-answer-3'
+            value={2}
+            checked={result.depression.irritability === '2'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, irritability: e.target.value } });
+            }}
           />
           <Form.Check
-            label="3. Estoy irritable todo el tiempo."
-            name="group1"
+            label="Estoy irritable todo el tiempo."
             type='radio'
-            id='inline-radio-2'
+            name="resultIrritability"
+            id='page-8-question-69-answer-4'
+            value={3}
+            checked={result.depression.irritability === '3'}
+            onChange={(e) => {
+              setResult({ ...result, depression: { ...result.depression, irritability: e.target.value } });
+            }}
           />
         </Form.Group>
       </div>

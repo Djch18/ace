@@ -5,6 +5,7 @@ import Students from "../pages/Students"
 import RecordPage from "../pages/RecordPage"
 import RequestsPage from "../pages/RequestsPage"
 import ProfilePage from "../pages/ProfilePage"
+import Student from "../pages/Student"
 
 const HomeRoutes = () => {
     return (
@@ -13,9 +14,11 @@ const HomeRoutes = () => {
             {/*Menu*/}
             <Route path='/home' element={<HomePage />} />
 
-            <Route path='/analytics' element={<Analytics />} />
+            {/* <Route path='/analytics' element={<Analytics />} /> */}
 
             <Route path='/students' element={<Students />} />
+
+            <Route path='/student' element={<Student />} />
 
             {/*Administration*/}
 
@@ -25,8 +28,7 @@ const HomeRoutes = () => {
 
             {/*Settings*/}
 
-            <Route path='/profile' element={<ProfilePage />} />
-
+            {/* <Route path='/profile' element={<ProfilePage />} /> */}
 
             <Route path='/*' element={<Navigate to='/home' />} />
 

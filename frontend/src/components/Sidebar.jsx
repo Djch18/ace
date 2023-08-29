@@ -36,7 +36,7 @@ const Sidebar = ({ currentPage }) => {
                         </Link>
                     </li>
 
-                    <li className="nav-item my-1" style={{ whiteSpace: 'nowrap' }}>
+                    {/* <li className="nav-item my-1" style={{ whiteSpace: 'nowrap' }}>
                         <Link
                             to='/analytics'
                             className={(currentPage === 'analytics' ? 'nav-link text-center text-primary text-md-start disabled' : 'nav-link text-center text-secondary text-md-start')}
@@ -44,7 +44,7 @@ const Sidebar = ({ currentPage }) => {
                             <i className="fas fa-chart-line"></i>
                             <span className="ms-3 d-none d-md-inline">Analítica</span>
                         </Link>
-                    </li>
+                    </li> */}
 
                     <li className="nav-item my-1" style={{ whiteSpace: 'nowrap' }}>
                         <Link
@@ -89,7 +89,7 @@ const Sidebar = ({ currentPage }) => {
                 <ul className="nav flex-column">
                     <span className='text-center text-md-start'>Ajustes</span>
 
-                    <li className="nav-item my-1" style={{ whiteSpace: 'nowrap' }}>
+                    {/* <li className="nav-item my-1" style={{ whiteSpace: 'nowrap' }}>
                         <Link
                             to='/profile'
                             className={(currentPage === 'profile' ? 'nav-link text-center text-primary text-md-start disabled' : 'nav-link text-center text-secondary text-md-start')}
@@ -97,7 +97,7 @@ const Sidebar = ({ currentPage }) => {
                             <i className="fas fa-id-card"></i>
                             <span className="ms-3 d-none d-md-inline">Perfil</span>
                         </Link>
-                    </li>
+                    </li> */}
 
                     <li className="nav-item my-1" style={{ whiteSpace: 'nowrap' }}>
                         <Link

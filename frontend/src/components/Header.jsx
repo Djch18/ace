@@ -75,7 +75,7 @@ const Header = () => {
                     </div>
 
                     <div className='d-flex align-items-center' style={{ maxWidth: 256, gap: 16, overflow: 'hidden' }}>
-                        <i className="fas fa-bell fs-4"></i>
+                        {/* <i className="fas fa-bell fs-4"></i> */}
                         <div className='bg-secondary border rounded' style={{ height: 48 }}></div>
 
                         <div className='bg-primary d-flex justify-content-center align-items-center' style={{ width: 48, height: 48, borderRadius: 100, color: '#fff' }}>

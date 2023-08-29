@@ -5,9 +5,7 @@ import FormContext from "../formContext/FormContext";
 
 import '../../css/form/FormStyles.css'
 
-const FormPage1 = ({ page }) => {
-
-  const { student, setStudent } = useContext(FormContext);
+const FormPage1 = ({ page, formData: student, setFormData: setStudent }) => {
 
   const grades = {
     "Séptimo": [
@@ -83,7 +81,7 @@ const FormPage1 = ({ page }) => {
       </div>
 
       <div className='form-section'>
-        <Form.Group controlId="formEmail">
+        <Form.Group controlId="formEmailStudent">
           <Form.Label className='mb-4'>1. Correo institucional del estudiante.</Form.Label>
           <Form.Control
             type="email"
@@ -106,7 +104,7 @@ const FormPage1 = ({ page }) => {
               setStudent({ ...student, grade: e.target.value });
             }}
           >
-            <option disabled >Elegir</option>
+            <option>Elegir</option>
             {
               Object.entries(grades).map(([grade, sections]) => (
                 <>
@@ -176,7 +174,7 @@ const FormPage1 = ({ page }) => {
               setStudent({ ...student, address: e.target.value });
             }}
           >
-            <option disabled>Elegir</option>
+            <option>Elegir</option>
             {
               Object.entries(distribution).map(([provincia, cantones]) => (
                 <>

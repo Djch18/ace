@@ -1,13 +1,15 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Form } from 'react-bootstrap'
 
 import FormContext from "../formContext/FormContext";
 
 import '../../css/form/FormStyles.css'
 
-const FormPage12 = ({ page }) => {
+const FormPage12 = ({ page, formData: result, setFormData: setResult }) => {
 
-  const { result, setResult } = useContext(FormContext);
+  useEffect(() => {
+    console.log(result.religion)
+  }, [result])
 
   return (
     <Form>
@@ -23,7 +25,7 @@ const FormPage12 = ({ page }) => {
             type='radio'
             name="resultSatisfiedEvangelizationActivities"
             className='mb-3'
-            id='page-11-question-98-answer-1'
+            id='page-12-question-98-answer-1'
             value={1}
             checked={result.religion.satisfied_evangelization_activities === '1'}
             onChange={(e) => {
@@ -34,7 +36,7 @@ const FormPage12 = ({ page }) => {
             label="No"
             type='radio'
             name="resultSatisfiedEvangelizationActivities"
-            id='page-11-question-98-answer-2'
+            id='page-12-question-98-answer-2'
             value={0}
             checked={result.religion.satisfied_evangelization_activities === '0'}
             onChange={(e) => {
@@ -52,7 +54,7 @@ const FormPage12 = ({ page }) => {
             type='radio'
             name="resultSatisfiedReligiousClasses"
             className='mb-3'
-            id='page-11-question-99-answer-1'
+            id='page-12-question-99-answer-1'
             value={1}
             checked={result.religion.satisfied_religious_classes === '1'}
             onChange={(e) => {
@@ -63,7 +65,7 @@ const FormPage12 = ({ page }) => {
             label="No"
             type='radio'
             name="resultSatisfiedReligiousClasses"
-            id='page-11-question-99-answer-2'
+            id='page-12-question-99-answer-2'
             value={0}
             checked={result.religion.satisfied_religious_classes === '0'}
             onChange={(e) => {
@@ -81,9 +83,9 @@ const FormPage12 = ({ page }) => {
             type='radio'
             name="resultReadHolyScriptures"
             className='mb-3'
-            id='page-11-question-100-answer-1'
-            value='nunca'
-            checked={result.religion.read_holy_scriptures === 'nunca'}
+            id='page-12-question-100-answer-1'
+            value='0'
+            checked={result.religion.read_holy_scriptures === '0'}
             onChange={(e) => {
               setResult({ ...result, religion: { ...result.religion, read_holy_scriptures: e.target.value } });
             }}
@@ -93,9 +95,9 @@ const FormPage12 = ({ page }) => {
             type='radio'
             name="resultReadHolyScriptures"
             className='mb-3'
-            id='page-11-question-100-answer-2'
-            value='muy poco'
-            checked={result.religion.read_holy_scriptures === 'muy poco'}
+            id='page-12-question-100-answer-2'
+            value='1'
+            checked={result.religion.read_holy_scriptures === '1'}
             onChange={(e) => {
               setResult({ ...result, religion: { ...result.religion, read_holy_scriptures: e.target.value } });
             }}
@@ -105,9 +107,9 @@ const FormPage12 = ({ page }) => {
             type='radio'
             name="resultReadHolyScriptures"
             className='mb-3'
-            id='page-11-question-100-answer-3'
-            value='poco'
-            checked={result.religion.read_holy_scriptures === 'poco'}
+            id='page-12-question-100-answer-3'
+            value='2'
+            checked={result.religion.read_holy_scriptures === '2'}
             onChange={(e) => {
               setResult({ ...result, religion: { ...result.religion, read_holy_scriptures: e.target.value } });
             }}
@@ -116,9 +118,9 @@ const FormPage12 = ({ page }) => {
             label="Mucho"
             type='radio'
             name="resultReadHolyScriptures"
-            id='page-11-question-100-answer-4'
-            value='mucho'
-            checked={result.religion.read_holy_scriptures === 'mucho'}
+            id='page-12-question-100-answer-4'
+            value='3'
+            checked={result.religion.read_holy_scriptures === '3'}
             onChange={(e) => {
               setResult({ ...result, religion: { ...result.religion, read_holy_scriptures: e.target.value } });
             }}
@@ -134,9 +136,9 @@ const FormPage12 = ({ page }) => {
             type='radio'
             name="resultKnowAboutSacraments"
             className='mb-3'
-            id='page-11-question-101-answer-1'
-            value='nada'
-            checked={result.religion.know_about_sacraments === 'nada'}
+            id='page-12-question-101-answer-1'
+            value='0'
+            checked={result.religion.know_about_sacraments === '0'}
             onChange={(e) => {
               setResult({ ...result, religion: { ...result.religion, know_about_sacraments: e.target.value } });
             }}
@@ -146,9 +148,9 @@ const FormPage12 = ({ page }) => {
             type='radio'
             name="resultKnowAboutSacraments"
             className='mb-3'
-            id='page-11-question-101-answer-2'
-            value='muy poco'
-            checked={result.religion.know_about_sacraments === 'muy poco'}
+            id='page-12-question-101-answer-2'
+            value='1'
+            checked={result.religion.know_about_sacraments === '1'}
             onChange={(e) => {
               setResult({ ...result, religion: { ...result.religion, know_about_sacraments: e.target.value } });
             }}
@@ -158,9 +160,9 @@ const FormPage12 = ({ page }) => {
             type='radio'
             name="resultKnowAboutSacraments"
             className='mb-3'
-            id='page-11-question-101-answer-3'
-            value='poco'
-            checked={result.religion.know_about_sacraments === 'poco'}
+            id='page-12-question-101-answer-3'
+            value='2'
+            checked={result.religion.know_about_sacraments === '2'}
             onChange={(e) => {
               setResult({ ...result, religion: { ...result.religion, know_about_sacraments: e.target.value } });
             }}
@@ -169,9 +171,9 @@ const FormPage12 = ({ page }) => {
             label="Mucho"
             type='radio'
             name="resultKnowAboutSacraments"
-            id='page-11-question-101-answer-4'
-            value='mucho'
-            checked={result.religion.know_about_sacraments === 'mucho'}
+            id='page-12-question-101-answer-4'
+            value='3'
+            checked={result.religion.know_about_sacraments === '3'}
             onChange={(e) => {
               setResult({ ...result, religion: { ...result.religion, know_about_sacraments: e.target.value } });
             }}
@@ -189,13 +191,13 @@ const FormPage12 = ({ page }) => {
               setResult({ ...result, religion: { ...result.religion, communion_per_month: e.target.value } });
             }}
           >
-            <option disabled >Elegir</option>
+            <option>Elegir</option>
             <option value="0">No comulgo</option>
             <option value="1">1 vez al mes</option>
             <option value="2">2 veces al mes</option>
             <option value="3">3 veces al mes</option>
             <option value="4">4 veces al mes</option>
-            <option value="+4">Más de 4 veces al mes</option>
+            <option value="5">Más de 4 veces al mes</option>
           </Form.Select>
         </Form.Group>
       </div>
@@ -208,9 +210,9 @@ const FormPage12 = ({ page }) => {
             type='radio'
             name="resultConfess"
             className='mb-3'
-            id='page-11-question-103-answer-1'
-            value='nunca'
-            checked={result.religion.confess === 'nunca'}
+            id='page-12-question-103-answer-1'
+            value='0'
+            checked={result.religion.confess === '0'}
             onChange={(e) => {
               setResult({ ...result, religion: { ...result.religion, confess: e.target.value } });
             }}
@@ -220,9 +222,9 @@ const FormPage12 = ({ page }) => {
             type='radio'
             name="resultConfess"
             className='mb-3'
-            id='page-11-question-103-answer-2'
-            value='muy poco'
-            checked={result.religion.confess === 'muy poco'}
+            id='page-12-question-103-answer-2'
+            value='1'
+            checked={result.religion.confess === '1'}
             onChange={(e) => {
               setResult({ ...result, religion: { ...result.religion, confess: e.target.value } });
             }}
@@ -232,9 +234,9 @@ const FormPage12 = ({ page }) => {
             type='radio'
             name="resultConfess"
             className='mb-3'
-            id='page-11-question-103-answer-3'
-            value='poco'
-            checked={result.religion.confess === 'poco'}
+            id='page-12-question-103-answer-3'
+            value='2'
+            checked={result.religion.confess === '2'}
             onChange={(e) => {
               setResult({ ...result, religion: { ...result.religion, confess: e.target.value } });
             }}
@@ -243,9 +245,9 @@ const FormPage12 = ({ page }) => {
             label="Mucho"
             type='radio'
             name="resultConfess"
-            id='page-11-question-103-answer-4'
-            value='mucho'
-            checked={result.religion.confess === 'mucho'}
+            id='page-12-question-103-answer-4'
+            value='3'
+            checked={result.religion.confess === '3'}
             onChange={(e) => {
               setResult({ ...result, religion: { ...result.religion, confess: e.target.value } });
             }}
@@ -261,7 +263,7 @@ const FormPage12 = ({ page }) => {
             type='radio'
             name="resultInReligiousFormationMeetings"
             className='mb-3'
-            id='page-11-question-104-answer-1'
+            id='page-12-question-104-answer-1'
             value={1}
             checked={result.religion.in_religious_formation_meetings === '1'}
             onChange={(e) => {
@@ -272,7 +274,7 @@ const FormPage12 = ({ page }) => {
             label="No"
             type='radio'
             name="resultInReligiousFormationMeetings"
-            id='page-11-question-104-answer-2'
+            id='page-12-question-104-answer-2'
             value={0}
             checked={result.religion.in_religious_formation_meetings === '0'}
             onChange={(e) => {

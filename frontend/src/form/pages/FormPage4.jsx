@@ -5,10 +5,7 @@ import FormContext from "../formContext/FormContext";
 
 import '../../css/form/FormStyles.css'
 
-const FormPage4 = ({ page }) => {
-
-  const { result, setResult } = useContext(FormContext);
-
+const FormPage4 = ({ page, formData: result, setFormData: setResult }) => {
   return (
     <Form>
       <div className='form-name-section'>
@@ -25,7 +22,7 @@ const FormPage4 = ({ page }) => {
               setResult({ ...result, habits: { ...result.habits, favorite_meal_time: e.target.value } });
             }}
           >
-            <option disabled>Elegir</option>
+            <option>Elegir</option>
             <option value="desayuno">Desayuno</option>
             <option value="merienda matutina">Merienda matutina</option>
             <option value="almuerzo">Almuerzo</option>
@@ -77,7 +74,7 @@ const FormPage4 = ({ page }) => {
               setResult({ ...result, habits: { ...result.habits, eat_times_day: e.target.value } });
             }}
           >
-            <option disabled>Elegir</option>
+            <option>Elegir</option>
             <option value="1">1 veces al día</option>
             <option value="2">2 veces al día</option>
             <option value="3">3 veces al día</option>

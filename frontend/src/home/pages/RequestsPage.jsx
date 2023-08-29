@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import { Badge, Button, Col, Container, Form, Image, Navbar, Row, Table } from 'react-bootstrap'
+import { useDispatch } from 'react-redux';
+import { Badge, Button, Col, Container, Form, Image, InputGroup, Navbar, Row, Table } from 'react-bootstrap'
 
 import { useUserStore } from '../../hooks/useUserStore';
 import { useForm } from '../../hooks/useForm';
@@ -20,6 +21,18 @@ const registerFormFields = {
 }
 
 const RequestsPage = () => {
+
+    const dispatch = useDispatch()
+
+    const [passwordType, setPasswordType] = useState("password");
+
+    const togglePassword = () => {
+        if (passwordType === "password") {
+            setPasswordType("text")
+            return;
+        }
+        setPasswordType("password")
+    }
 
     const { users, startLoadingUsers, startSavingUser, startUpdatingUser, startDeletingUser, } = useUserStore();
 
@@ -284,13 +297,24 @@ const RequestsPage = () => {
 
                                 <Form.Group as={Col} xs={12} md={6} controlId="formPassword">
                                     <Form.Label>Contraseña</Form.Label>
-                                    <Form.Control
-                                        type="password"
-                                        placeholder="Al menos 8 caracteres"
-                                        name='registerPassword'
-                                        value={registerPassword}
-                                        onChange={onRegisterInputChange}
-                                    />
+                                    <InputGroup className="mb-3" hasValidation>
+                                        <Form.Control
+                                            type={passwordType}
+                                            placeholder="Al menos 8 caracteres"
+                                            name='registerPassword'
+                                            value={registerPassword}
+                                            onChange={onRegisterInputChange}
+                                        />
+                                        <Button
+                                            variant="light"
+                                            id="show-password-button"
+                                            className='border'
+                                            onClick={togglePassword}
+                                            style={{ width: 46 }}
+                                        >
+                                            {passwordType === "password" ? <i className="fas fa-eye"></i> : <i className="fas fa-eye-slash"></i>}
+                                        </Button>
+                                    </InputGroup>
                                 </Form.Group>
                             </Row>
 

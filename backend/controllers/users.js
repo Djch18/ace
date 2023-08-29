@@ -105,7 +105,13 @@ const putUsers = async (req, res) => {
 
         await user.update(body);
 
-        res.json(user);
+        const users = await User.findAll({
+            where: {
+                state: 0
+            }
+        });
+    
+        res.json(users);
 
     } catch (error) {
 
@@ -133,7 +139,13 @@ const deleteUsers = async (req, res) => {
 
         await user.destroy();
 
-        res.json(user);
+        const users = await User.findAll({
+            where: {
+                state: 0
+            }
+        });
+    
+        res.json(users);
 
     } catch (error) {
 

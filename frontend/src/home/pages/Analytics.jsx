@@ -18,7 +18,6 @@ import '../../css/home/HomeGeneralStyles.css'
 
 const Analytics = () => {
 
-
     const data = [
         {
             "name": "Page A",
